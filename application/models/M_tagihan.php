@@ -7,19 +7,19 @@ class M_tagihan extends CI_Model
     function tampil_data()
     {
         $this->db->select('
-        a.id,
-        a.kode_instansi,
-        b.nama,
-        a.wilayah,
-        a.spb,
-        a.tagihan,
-        a.faktur_pajak,
-        a.jumlah_tagihan,
-        a.total_pembayaran,
-        a.tanggal_bayar,
-        a.do_diterima,
-        a.hari,
-        a.tanggal');
+            a.id,
+            a.kode_instansi,
+            b.nama,
+            a.wilayah,
+            a.spb,
+            a.tagihan,
+            a.faktur_pajak,
+            a.jumlah_tagihan,
+            a.total_pembayaran,
+            a.tanggal_bayar,
+            a.do_diterima,
+            a.hari,
+            a.tanggal');
         $this->db->join('tbl_instansi b', 'b.kode_instansi = a.kode_instansi', 'left');
         $hsl = $this->db->get('tbl_penagihan a');
         return $hsl;
@@ -27,19 +27,19 @@ class M_tagihan extends CI_Model
     function tampil_data_belum_lunas()
     {
         $this->db->select('
-        a.id,
-        a.kode_instansi,
-        b.nama,
-        a.wilayah,
-        a.spb,
-        a.tagihan,
-        a.faktur_pajak,
-        a.jumlah_tagihan,
-        a.total_pembayaran,
-        a.tanggal_bayar,
-        a.do_diterima,
-        a.hari,
-        a.tanggal');
+            a.id,
+            a.kode_instansi,
+            b.nama,
+            a.wilayah,
+            a.spb,
+            a.tagihan,
+            a.faktur_pajak,
+            a.jumlah_tagihan,
+            a.total_pembayaran,
+            a.tanggal_bayar,
+            a.do_diterima,
+            a.hari,
+            a.tanggal');
         $this->db->join('tbl_instansi b', 'b.kode_instansi = a.kode_instansi', 'left');
         $this->db->where('a.tagihan', 'belum');
         $hsl = $this->db->get('tbl_penagihan a');
@@ -65,19 +65,19 @@ class M_tagihan extends CI_Model
     function get_data_by_id($id)
     {
         $this->db->select('
-        a.id,
-        a.kode_instansi,
-        b.nama,
-        a.wilayah,
-        a.spb as data_spb,
-        a.tagihan,
-        a.faktur_pajak,
-        a.jumlah_tagihan,
-        a.total_pembayaran,
-        a.tanggal_bayar,
-        a.do_diterima,
-        a.hari,
-        a.tanggal');
+            a.id,
+            a.kode_instansi,
+            b.nama,
+            a.wilayah,
+            a.spb as data_spb,
+            a.tagihan,
+            a.faktur_pajak,
+            a.jumlah_tagihan,
+            a.total_pembayaran,
+            a.tanggal_bayar,
+            a.do_diterima,
+            a.hari,
+            a.tanggal');
         $this->db->join('tbl_instansi b', 'b.kode_instansi = a.kode_instansi', 'left');
         $this->db->where('a.id', $id);
         $hsl = $this->db->get('tbl_penagihan a');
@@ -90,19 +90,19 @@ class M_tagihan extends CI_Model
     function laporan($tgl1, $tgl2)
     {
         $this->db->select('
-        a.id,
-        a.kode_instansi,
-        b.nama,
-        a.wilayah,
-        a.spb,
-        a.tagihan,
-        a.faktur_pajak,
-        a.jumlah_tagihan,
-        a.total_pembayaran,
-        a.tanggal_bayar,
-        a.do_diterima,
-        a.hari,
-        a.tanggal');
+            a.id,
+            a.kode_instansi,
+            b.nama as nama,
+            a.wilayah,
+            a.spb,
+            a.tagihan,
+            a.faktur_pajak,
+            a.jumlah_tagihan,
+            a.total_pembayaran,
+            a.tanggal_bayar,
+            a.do_diterima,
+            a.hari,
+            a.tanggal');
         $this->db->join('tbl_instansi b', 'b.kode_instansi = a.kode_instansi', 'left');
         $this->db->where('a.tanggal_bayar >=', $tgl1);
         $this->db->where('a.tanggal_bayar <=', $tgl2);

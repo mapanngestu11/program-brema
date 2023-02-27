@@ -43,7 +43,7 @@ class Barang  extends CI_Controller
                 $gbr = $this->upload->data();
                 //Compress Image
                 $config['image_library'] = 'gd2';
-                $config['source_image'] = './assets/foto_barang/' . $gbr['file_name'];
+                $config['source_image'] = './assets/upload/mou' . $gbr['file_name'];
                 $config['create_thumb'] = FALSE;
                 $config['maintain_ratio'] = FALSE;
                 $config['quality'] = '100%';

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Tagihan</title>
+    <title>Data Tunggakan</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -53,14 +53,14 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Data Tagihan</h3>
+                            <h3>Data Tunggakan</h3>
                             <p class="text-subtitle text-muted">PT. GRAHA SUMBER ENERGI</p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?php echo base_url() . 'Homepage'; ?>">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Data Tagihan</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Data Tunggakan</li>
                                 </ol>
                             </nav>
                         </div>
@@ -95,7 +95,7 @@
                                         $wilayah        = $row['wilayah'];
                                         $total_pembayaran        = $row['total_pembayaran'];
 
-                                    ?>
+                                        ?>
                                         <tr>
                                             <td><?php echo $no ?></td>
                                             <td><?php echo $kode_instansi ?></td>
@@ -108,159 +108,159 @@
                                                 </div>
                                             </td>
                                         <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                </section>
-            </div>
+                    </section>
+                </div>
 
 
-            <!-- modal hapus -->
-            <?php foreach ($data_penagihan->result_array() as $row) :
-                $id = $row['id'];
+                <!-- modal hapus -->
+                <?php foreach ($data_penagihan->result_array() as $row) :
+                    $id = $row['id'];
                 // $nama = $row['nama'];
 
-            ?>
-                <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button> -->
-                                <h4 class="modal-title" id="myModalLabel">Hapus Tagihan</h4>
-                            </div>
-                            <form class="form-horizontal" action="<?php echo base_url() . 'Tagihan/delete' ?>" method="post">
-                                <div class="modal-body">
-                                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
-
-                                    <p>Apakah Anda yakin mau menghapus ?</p>
-
+                    ?>
+                    <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button> -->
+                                    <h4 class="modal-title" id="myModalLabel">Hapus Tagihan</h4>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn" data-bs-dismiss="modal">
-                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Batal</span>
-                                    </button>
-                                    <button type="submit" class="btn btn-primary btn-flat" id="simpan">Hapus</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-            <!-- end modal -->
-            <?php foreach ($data_penagihan->result_array() as $row) :
-                $id = $row['id'];
-                $nama = $row['nama'];
-                $wilayah = $row['wilayah'];
-                $spb     = $row['spb'];
-                $tagihan = $row['tagihan'];
-                $faktur_pajak = $row['faktur_pajak'];
-                $jumlah_tagihan = $row['jumlah_tagihan'];
-                $total_pembayaran = $row['total_pembayaran'];
-                $tanggal_bayar = $row['tanggal_bayar'];
-                $do_diterima  = $row['do_diterima'];
-                $hari = $row['hari'];
-                $tanggal            = $row['tanggal'];
-                $originalDate1 = $tanggal;
-                $tgl = date("d-F-Y", strtotime($originalDate1));
+                                <form class="form-horizontal" action="<?php echo base_url() . 'Tagihan/delete' ?>" method="post">
+                                    <div class="modal-body">
+                                        <input type="hidden" name="id" value="<?php echo $id; ?>" />
 
-                $originalDate2 = $tanggal_bayar;
-                $tgl_bayar = date("d-F-Y", strtotime($originalDate1));
+                                        <p>Apakah Anda yakin mau menghapus ?</p>
 
-                $originalDate3 = $faktur_pajak;
-                $tgl_faktur = date("d-F-Y", strtotime($originalDate3));
-
-                $originalDate4 = $do_diterima;
-                $tgl_do = date("d-F-Y", strtotime($originalDate3));
-
-            ?>
-                <style>
-                    .baris {
-                        padding: 5px;
-                    }
-                </style>
-                <div class="modal fade" id="ModalDetail<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content modal-lg">
-                            <div class="modal-header">
-                                <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button> -->
-                                <h4 class="modal-title" id="myModalLabel">Detail Tagihan</h4>
-                            </div>
-                            <form class="form-horizontal" action="<?php echo base_url() . 'Tagihan/' ?>" method="post">
-                                <div class="modal-body">
-                                    <div class="form-group baris">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Nama Instansi</label>
-                                                <input type="text" class="form-control" value="<?php echo $nama; ?>" readonly>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Wilayah</label>
-                                                <input type="text" class="form-control" value="<?php echo $wilayah; ?>" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group baris">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Faktur Pajak</label>
-                                                <input type="text" class="form-control" value="<?php echo $tgl_faktur; ?>" readonly>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Jumlah Tagihan</label>
-                                                <input type="text" class="form-control" value="<?php echo number_format($jumlah_tagihan); ?>" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group baris">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Total Pembayaran</label>
-                                                <input type="text" class="form-control" value="<?php echo number_format($total_pembayaran); ?>" readonly>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Tanggal Bayar</label>
-                                                <input type="text" class="form-control" value="<?php echo $tgl_bayar; ?>" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group baris">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Do Diterima</label>
-                                                <input type="text" class="form-control" value="<?php echo $tgl_do; ?>" readonly>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Jumlah Hari</label>
-                                                <input type="text" class="form-control" value="<?php echo $hari; ?>" readonly>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn" data-bs-dismiss="modal">
                                             <i class="bx bx-x d-block d-sm-none"></i>
-
+                                            <span class="d-none d-sm-block">Batal</span>
                                         </button>
-                                        <button type="button" data-bs-dismiss="modal" class="btn btn-primary btn-flat" id="simpan">Kembali</button>
+                                        <button type="submit" class="btn btn-primary btn-flat" id="simpan">Hapus</button>
                                     </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
-            <!-- end -->
-            <!-- footer -->
-            <?php include 'pages/footer.php'; ?>
-            <!-- end footer -->
-        </div>
-    </div>
-    <script src="<?php echo base_url() . "assets/"; ?>vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="<?php echo base_url() . "assets/"; ?>js/bootstrap.bundle.min.js"></script>
+                <?php endforeach; ?>
+                <!-- end modal -->
+                <?php foreach ($data_penagihan->result_array() as $row) :
+                    $id = $row['id'];
+                    $nama = $row['nama'];
+                    $wilayah = $row['wilayah'];
+                    $spb     = $row['spb'];
+                    $tagihan = $row['tagihan'];
+                    $faktur_pajak = $row['faktur_pajak'];
+                    $jumlah_tagihan = $row['jumlah_tagihan'];
+                    $total_pembayaran = $row['total_pembayaran'];
+                    $tanggal_bayar = $row['tanggal_bayar'];
+                    $do_diterima  = $row['do_diterima'];
+                    $hari = $row['hari'];
+                    $tanggal            = $row['tanggal'];
+                    $originalDate1 = $tanggal;
+                    $tgl = date("d-F-Y", strtotime($originalDate1));
 
-    <script src="<?php echo base_url() . "assets/"; ?>vendors/simple-datatables/simple-datatables.js"></script>
-    <script>
+                    $originalDate2 = $tanggal_bayar;
+                    $tgl_bayar = date("d-F-Y", strtotime($originalDate1));
+
+                    $originalDate3 = $faktur_pajak;
+                    $tgl_faktur = date("d-F-Y", strtotime($originalDate3));
+
+                    $originalDate4 = $do_diterima;
+                    $tgl_do = date("d-F-Y", strtotime($originalDate3));
+
+                    ?>
+                    <style>
+                        .baris {
+                            padding: 5px;
+                        }
+                    </style>
+                    <div class="modal fade" id="ModalDetail<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content modal-lg">
+                                <div class="modal-header">
+                                    <!--    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button> -->
+                                    <h4 class="modal-title" id="myModalLabel">Detail Tagihan</h4>
+                                </div>
+                                <form class="form-horizontal" action="<?php echo base_url() . 'Tagihan/' ?>" method="post">
+                                    <div class="modal-body">
+                                        <div class="form-group baris">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Nama Instansi</label>
+                                                    <input type="text" class="form-control" value="<?php echo $nama; ?>" readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Wilayah</label>
+                                                    <input type="text" class="form-control" value="<?php echo $wilayah; ?>" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group baris">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Faktur Pajak</label>
+                                                    <input type="text" class="form-control" value="<?php echo $tgl_faktur; ?>" readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Jumlah Tagihan</label>
+                                                    <input type="text" class="form-control" value="<?php echo number_format($jumlah_tagihan); ?>" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group baris">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Total Pembayaran</label>
+                                                    <input type="text" class="form-control" value="<?php echo number_format($total_pembayaran); ?>" readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Tanggal Bayar</label>
+                                                    <input type="text" class="form-control" value="<?php echo $tgl_bayar; ?>" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group baris">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Do Diterima</label>
+                                                    <input type="text" class="form-control" value="<?php echo $tgl_do; ?>" readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Jumlah Hari</label>
+                                                    <input type="text" class="form-control" value="<?php echo $hari; ?>" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn" data-bs-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+
+                                            </button>
+                                            <button type="button" data-bs-dismiss="modal" class="btn btn-primary btn-flat" id="simpan">Kembali</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                    <!-- end -->
+                    <!-- footer -->
+                    <?php include 'pages/footer.php'; ?>
+                    <!-- end footer -->
+                </div>
+            </div>
+            <script src="<?php echo base_url() . "assets/"; ?>vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+            <script src="<?php echo base_url() . "assets/"; ?>js/bootstrap.bundle.min.js"></script>
+
+            <script src="<?php echo base_url() . "assets/"; ?>vendors/simple-datatables/simple-datatables.js"></script>
+            <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
@@ -286,49 +286,49 @@
             });
         </script>
 
-    <?php elseif ($this->session->flashData('msg') == 'success') : ?>
-        <script type="text/javascript">
-            Swal.fire({
-                type: 'success',
-                title: 'Sukses',
-                heading: 'Success',
-                text: "Data Berhasil Di Tambahkan.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php elseif ($this->session->flashData('msg') == 'info-update') : ?>
-        <script type="text/javascript">
-            Swal.fire({
-                type: 'success',
-                title: 'Sukses',
-                heading: 'Success',
-                text: "Data Berhasil Di Update.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php elseif ($this->session->flashData('msg') == 'success-hapus') : ?>
-        <script type="text/javascript">
-            Swal.fire({
-                type: 'success',
-                title: 'Sukses',
-                heading: 'Success',
-                text: "Data Berhasil dihapus.",
-                showHideTransition: 'slide',
-                icon: 'success',
-                hideAfter: false,
-                bgColor: '#7EC857'
-            });
-        </script>
-    <?php else : ?>
+        <?php elseif ($this->session->flashData('msg') == 'success') : ?>
+            <script type="text/javascript">
+                Swal.fire({
+                    type: 'success',
+                    title: 'Sukses',
+                    heading: 'Success',
+                    text: "Data Berhasil Di Tambahkan.",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    bgColor: '#7EC857'
+                });
+            </script>
+            <?php elseif ($this->session->flashData('msg') == 'info-update') : ?>
+                <script type="text/javascript">
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Sukses',
+                        heading: 'Success',
+                        text: "Data Berhasil Di Update.",
+                        showHideTransition: 'slide',
+                        icon: 'success',
+                        hideAfter: false,
+                        bgColor: '#7EC857'
+                    });
+                </script>
+                <?php elseif ($this->session->flashData('msg') == 'success-hapus') : ?>
+                    <script type="text/javascript">
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Sukses',
+                            heading: 'Success',
+                            text: "Data Berhasil dihapus.",
+                            showHideTransition: 'slide',
+                            icon: 'success',
+                            hideAfter: false,
+                            bgColor: '#7EC857'
+                        });
+                    </script>
+                    <?php else : ?>
 
-    <?php endif; ?>
-    <!-- end msg -->
-</body>
+                    <?php endif; ?>
+                    <!-- end msg -->
+                </body>
 
-</html>
+                </html>

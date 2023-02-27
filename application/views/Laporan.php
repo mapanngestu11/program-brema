@@ -88,7 +88,7 @@
             $originalDate6 = $do_diterima;
             $tgl1 = date("d-F-Y", strtotime($originalDate6));
 
-        ?>
+            ?>
             <tr>
 
                 <td><?php echo $nama; ?></td>
